@@ -32,7 +32,8 @@ address {
 }
 
 .footer {
-	box-shadow: 5px 0px 8px #888888 inset;
+	max-height: 8rem;
+	
 }
 
 p {
