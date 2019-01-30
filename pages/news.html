@@ -20,7 +20,7 @@
 
 	<div class="body">
 		<div class="tab">
-			<button class="tablinks" onclick="openTab(event, 'news')">News</button>
+			<button class="tablinks" onclick="openTab(event, 'news')" id="defaultOpen">News</button>
 			<button class="tablinks" onclick="openTab(event, 'press')">Press Releases</button>
 
 		</div>
@@ -47,6 +47,7 @@
 	</div>
 	
 	<script>
+		document.getElementById("defaultOpen").click();
 		function openTab(evt, tabType) {
 			// Declare all variables
 			var i, tabcontent, tablinks;
