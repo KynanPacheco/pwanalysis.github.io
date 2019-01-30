@@ -20,8 +20,8 @@
 
 	<div class="body">
 		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'news')">News</button>
-			<button class="tablinks" onclick="openCity(event, 'press')">Press Releases</button>
+			<button class="tablinks" onclick="openTab(event, 'news')">News</button>
+			<button class="tablinks" onclick="openTab(event, 'press')">Press Releases</button>
 
 		</div>
 
@@ -32,7 +32,7 @@
 		</div>
 
 		<div id="press" class="tabcontent">
-			<h3>Paris</h3>
+			<h3>TEST TEXT</h3>
 			<p>This is sample text for a press release</p> 
 		</div>
 		
@@ -47,7 +47,7 @@
 	</div>
 	
 	<script>
-		function openCity(evt, tabType) {
+		function openTab(evt, tabType) {
 			// Declare all variables
 			var i, tabcontent, tablinks;
 
@@ -64,7 +64,7 @@
 			}
 	
 			// Show the current tab, and add an "active" class to the button that opened the tab
-			document.getElementById(cityName).style.display = "block";
+			document.getElementById(tabType).style.display = "block";
 			evt.currentTarget.className += " active";
 		}
 
