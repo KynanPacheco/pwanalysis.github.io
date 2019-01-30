@@ -6,6 +6,7 @@
 
 .banner {
 	box-shadow: 5px 0px 8px #888888;
+	margin-bottom: 5rem;
 }
 
 li {
@@ -13,9 +14,11 @@ li {
 }
 
 .body{
+	margin-top: 5rem;
 	width: 60%;
 	margin-left: 20%;
 	margin-right: 20%;
+	margin-bottom: 5rem;
 }
 
 address {
