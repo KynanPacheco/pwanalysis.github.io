@@ -8,10 +8,15 @@ li {
 	display:inline-block;
 }
 
-.body {
+.body{
 	width: 60%;
 	margin-left: 20%;
 	margin-right: 20%;
+}
+
+address {
+	text-align: center;
+	
 }
 
 p {
