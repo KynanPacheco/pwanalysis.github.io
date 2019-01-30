@@ -9,6 +9,11 @@
 	margin-bottom: 5rem;
 }
 
+.logo{
+	height: 4rem;
+	width: 4rem;
+}
+
 li {
 	display:inline-block;
 }
