@@ -7,3 +7,11 @@
 li {
 	display:inline-block;
 }
+
+.body {
+	width: 60%;
+}
+
+p {
+	width: 90%;
+}
