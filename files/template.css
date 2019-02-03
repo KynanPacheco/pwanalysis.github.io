@@ -16,8 +16,6 @@
 }
 
 .bannerHalf {
-	display: flex;
-	justify-content: space-between;
 	height: 5rem;
 	display:inline-block;
 	border: 5px solid red;
