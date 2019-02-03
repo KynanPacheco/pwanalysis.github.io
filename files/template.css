@@ -18,6 +18,7 @@
 
 .navItem {
 	width: 50%;
+	display:inline-block;
 }
 
 .logo{
@@ -26,7 +27,7 @@
 	
 }
 
-li.navItem {
+ul {
 	display:inline-block;
 }
 
