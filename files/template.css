@@ -16,19 +16,7 @@
 	max-width: 100%;
 }
 
-.logoContainer{
-	width: 15.8%;
-}
-
-.bannerHalf {
-	width: 42%;
-	height: 5rem;
-	display:inline-block;
-	border: 5px solid red;
-}
-
 .navItem {
-	width:50%;
 	margin:auto;
 	display:inline-block;
 }
