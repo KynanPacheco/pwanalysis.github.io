@@ -6,6 +6,15 @@
 
 .banner {
 	box-shadow: 5px 0px 8px #888888;
+	height: 5.5rem;
+}
+
+.bannerHalf {
+	height: 5rem;
+}
+
+.navItem {
+	width: 50%;
 }
 
 .logo{
