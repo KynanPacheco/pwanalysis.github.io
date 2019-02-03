@@ -5,6 +5,8 @@
 }
 
 .banner {
+	display: flex;
+	justify-content: space-between;
 	box-shadow: 5px 0px 8px #888888;
 	height: 5.5rem;
 }
