@@ -2,7 +2,6 @@
 	padding:0px;
 	margin:0px;
 	font-size:20px;
-
 }
 
 .banner {
@@ -13,15 +12,15 @@
 }
 
 .bannerHalf {
+	display: flex;
+	justify-content: space-between;
 	height: 5rem;
 	display:inline-block;
-	width: 45%;
 	border: 5px solid red;
-	
 }
 
 .navItem {
-	width: 49%;
+	margin:auto;
 	display:inline-block;
 	border: 5px solid black;
 }
@@ -30,9 +29,7 @@ ul {
 	border: 5px solid blue;
 }
 
-.logo{
-	
-}
+
 
 .body{
 	margin-top: 2rem;
