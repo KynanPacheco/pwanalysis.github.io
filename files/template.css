@@ -5,6 +5,9 @@
 }
 
 .banner {
+	position: fixed;
+	left: 0;
+	top: 0;
 	display: flex;
 	justify-content: space-between;
 	box-shadow: 5px 0px 8px #888888;
@@ -38,7 +41,7 @@ address {
 }
 
 .footer {
-	position: fixed;
+	position: relative;
 	left: 0;
 	bottom: 0;
 	width: 100%;
