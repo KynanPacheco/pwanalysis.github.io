@@ -5,9 +5,6 @@
 }
 
 .banner {
-	position: fixed;
-	left: 0;
-	top: 0;
 	display: flex;
 	justify-content: space-between;
 	box-shadow: 5px 0px 8px #888888;
