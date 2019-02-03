@@ -12,10 +12,12 @@
 }
 
 .logo{
-	width: 7rem;
+	width: 15.8%;
+	
 }
 
 .bannerHalf {
+	width: 42%;
 	height: 5rem;
 	display:inline-block;
 	border: 5px solid red;
