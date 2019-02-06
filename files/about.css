@@ -3,3 +3,16 @@ img {
 	float: right;
 	margin-right: 3rem;
 }
+
+a:link, a:visited {
+  background-color: #fff;
+  color: #000;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #7FD183;
+  color: #fff;
