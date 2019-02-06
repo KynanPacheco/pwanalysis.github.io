@@ -11,7 +11,7 @@
 	height: 5rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	background-color: #E0E0E0;
+	background-color: #F2F2F2;
 }
 
 .logo {
@@ -24,9 +24,12 @@
 	display:inline-block;
 	
 }
+.navAnchor {
+	color: #000;
+}
 
 .navAnchor:hover {
-	background-color: #73AB84;
+	color: #73AB84;
 }
 
 .body{
