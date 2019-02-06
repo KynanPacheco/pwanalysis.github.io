@@ -14,7 +14,7 @@ img {
 }
 
 .download:hover, .download:active {
-	border-color: #7FD183;
+	border: 5px solid #7FD183;
 	color: #000;
 	background-color: #fff;
 }
