@@ -2,6 +2,7 @@
 	padding:0px;
 	margin:0px;
 	font-size:20px;
+	font-family: 'Raleway', sans-serif;
 }
 
 .banner {
@@ -11,7 +12,7 @@
 	height: 5rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	background-color: #F2F2F2;
+	background-color: #F6F6F6;
 }
 
 .logo {
