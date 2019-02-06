@@ -21,6 +21,7 @@
 
 .navItem {
 	margin:auto;
+	margin-top:50%;
 	display:inline-block;
 	
 }
@@ -55,7 +56,8 @@ address {
 	height: 10rem;
 	width: 100%;
 	margin-top: 20rem;
-	background-color: #7FD183;
+	background-color: #73AB84;
+	margin-top: 25%;
 }
 
 p {
