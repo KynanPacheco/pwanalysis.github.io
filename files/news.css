@@ -2,7 +2,7 @@
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #EDEDED;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -20,6 +20,7 @@
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
+  color: #7FD183;
 }
 
 /* Create an active/current tablink class */
