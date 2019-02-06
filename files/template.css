@@ -19,7 +19,7 @@
 	width: 5rem;
 }
 
-.navItem {
+#navItem {
 	margin:auto;
 	margin-top:50%;
 	display:inline-block;
@@ -57,7 +57,7 @@ address {
 	width: 100%;
 	margin-top: 20rem;
 	background-color: #73AB84;
-	margin-top: 25%;
+	padding-top: 25%;
 }
 
 p {
