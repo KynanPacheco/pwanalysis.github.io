@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel DOC Test</title>
+</head>
+<style>
+	#map {
+		height: 500px;
+		width: 500px;
+	}
+
+	html, body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	table, td, th{
+		border: 2px solid black;
+	}
+	
+	table{
+		width: 100%;
+	}
+	
+	.sidebar  {
+		height: 100%; 
+		width: 0; 
+		position: fixed; 
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		overflow-x: hidden; 
+		padding-top: 60px; 
+		transition: 0.5s;
+	}
+
+
+	.sidebar a {
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		transition: 0.3s;
+	}
+
+
+	.sidebar a:hover {
+	
+	}
+
+
+	.sidebar .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+
+
+	.openbtn {
+		font-size: 20px;
+		cursor: pointer;
+		padding: 10px 15px;
+		border: none;
+	}
+
+	.openbtn:hover {
+
+	}
+
+	#main {
+		transition: margin-left .5s; 
+		padding: 20px;
+	}
+
+	@media screen and (max-height: 450px) {
+		.sidebar {padding-top: 15px;}
+		.sidebar a {font-size: 18px;}
+	}
+</style>
+<body>
+
+	<div id="main">
+		<button class="openbtn" onclick="openNav()">&#9776; Google Map Assist</button> 
+	</div>
+	
+	<div id="mySidebar" class="sidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		
+		<!--AIzaSyBy4aXxUzmX_RUZKlayIg7EkEOgGP_Fcww-->
+		<div id="map"></div>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy4aXxUzmX_RUZKlayIg7EkEOgGP_Fcww&callback=initMap">
+		</script>
+
+		<p>Start: </p><input type="text" id="start" placeholder="72 Jaques Ave Worcester MA">
+		<p>End: </p><input type="text" id="end" placeholder="335 Chandler St Worcester MA">
+		<br>
+		<button onclick="addToForm(); return false;">Import Info</button>
+	</div>
+	
+	<table id="milesTable">
+		<tr>
+			<th>Date</th>
+			<th>Odometer Start</th>
+			<th>Odometer End</th>
+			<th>From</th>
+			<th>To</th>
+			<th># of Miles</th>
+			<th>Amt Per Mile</th>
+			<th>Tolls & Parking</th>
+			<th>Total Amount</th>
+			<th><button>Submit Form</button></th>
+		<tr>
+		<tr>
+			<td><input type="date" id="date"></td>
+			<td><input type="number" id="odomBegin"></td>
+			<td><input type="number" id="odomEnd"></td>
+			<td><input type="text" id="from"></td>
+			<td><input type="text" id="to"></td>
+			<td><input type="text" id="miles" onChange="computeMiles()"></td>
+			<td>$0.580</td>
+			<td><input type="number" id="otherFees" onChange="computeMiles()"></td>
+			<td id="total">0</td>
+			<td><button onclick="addMiles(); return false;">Add to Form</button></td>
+	</table>
+
+	<script>
+	
+	/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+	function openNav() {
+		document.getElementById("mySidebar").style.width = "auto";
+		document.getElementById("main").style.marginLeft = "250px";
+	}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+	function closeNav() {
+		document.getElementById("mySidebar").style.width = "0";
+		document.getElementById("main").style.marginLeft = "0";
+	}
+	
+	function computeMiles() {
+		var mileage = document.getElementById("miles");
+		var tolls = document.getElementById("otherFees");
+		var formTotal = document.getElementById("total");
+		var total = 0;
+		var toll = 0
+		
+		toll = parseFloat(tolls.value);
+		total = mileage.value * 0.580 + toll;
+
+		formTotal.innerHTML = total;
+	}
+	
+	var map;
+	function initMap() {
+		var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+		
+		map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 42.2626, lng: -71.8023},
+		zoom: 10
+		});
+		
+		directionsDisplay.setMap(map);
+		
+		var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+	
+	 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+			if (status === 'OK') {
+			directionsDisplay.setDirections(response);
+			} else {
+			window.alert('Directions request failed due to ' + status);
+			}
+		});
+      }
+
+		function addMiles(){
+			var date = document.getElementById("date").value;
+			var odomBegin = document.getElementById("odomBegin").value;
+			var odomEnd = document.getElementById("odomEnd").value;
+			var fromLoc = document.getElementById("from").value;
+			var toLoc = document.getElementById("to").value;
+			var miles = document.getElementById("miles").value;
+			var otherFees = document.getElementById("otherFees").value;
+			var total = document.getElementById("total").innerHTML;
+			
+			var row = milesTable.insertRow(-1);
+			var insertDate = row.insertCell(-1);
+			var insertBegin = row.insertCell(-1);
+			var insertEnd = row.insertCell(-1);
+			var insertFrom = row.insertCell(-1);
+			var insertTo = row.insertCell(-1);
+			var insertMiles = row.insertCell(-1);
+			var insertAmt = row.insertCell(-1);
+			var insertOther = row.insertCell(-1);
+			var insertTotal = row.insertCell(-1);
+			
+			insertDate.innerHTML = date;
+			insertBegin.innerHTML = odomBegin;
+			insertEnd.innerHTML = odomEnd;
+			insertFrom.innerHTML = fromLoc;
+			insertTo.innerHTML = toLoc;
+			insertMiles.innerHTML = miles;
+			insertAmt.innerHTML = "$0.580";
+			insertOther.innerHTML = otherFees;
+			insertTotal.innerHTML = total;	
+		}
+		
+		function addToForm(){
+			var pointA = document.getElementById('start').value;
+			var pointB = document.getElementById('end').value;
+			
+			var service = new google.maps.DistanceMatrixService;
+			
+			var service = new google.maps.DistanceMatrixService();
+			service.getDistanceMatrix(
+				{
+					origins: [pointA],
+					destinations: [pointB],
+					travelMode: 'DRIVING',
+					unitSystem: google.maps.UnitSystem.IMPERIAL,
+					avoidHighways: false,
+					avoidTolls: false
+				}, callback);
+
+			function callback(response, status) {
+				 if (status == 'OK') {
+					var origins = response.originAddresses;
+					var destinations = response.destinationAddresses;
+					var results = response.rows[0].elements;
+					var element = results[0];
+					var distance = element.distance.text;
+					var mileage = document.getElementById("miles");
+					var start = document.getElementById("from");
+					var end = document.getElementById("to");
+					
+					mileage.value = parseFloat(distance);
+					start.value = origins;
+					end.value = destinations;
+					
+					computeMiles();
+					
+					console.log(distance);
+					console.log(origins);
+					console.log(destinations);
+					
+				}
+			}
+		}
+		
+		function debug() {
+			
+		}
+	</script>
+</body>
+
+</html>
