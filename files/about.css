@@ -19,3 +19,11 @@ img {
 	background-color: #fff;
 	text-decoration: underline;
 }
+
+.body{
+	margin-top: 2rem;
+	width: 40%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 5rem;
+}
